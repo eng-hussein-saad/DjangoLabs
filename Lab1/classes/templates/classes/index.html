@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'classes/styles.css' %}" />
+    <title>Document</title>
+    {%load custom_filters %}
+  </head>
+  <body>
+    <div id="loading-overlay">
+      <div class="loader"></div>
+    </div>
+    <div class="content" style="opacity: 0">
+      <h1 class="title">{{"Classses "|multiply:3}}</h1>
+      <h2>{{title|default:"This is the default title"|upper}}</h2>
+      <p>{{description|truncatewords:500|default:"this is the default"}}</p>
+      {% if messages %}
+      <ul>
+        {% for message in messages %}
+        <li>{{message}}</li>
+        {% endfor %}
+      </ul>
+      {% endif %}
+    </div>
+    <script src="{% static 'classes/index.js' %}"></script>
+  </body>
+</html>
